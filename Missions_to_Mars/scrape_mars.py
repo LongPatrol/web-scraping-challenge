@@ -14,6 +14,7 @@ def scrape():
     browser.visit(url)
 
     #Setting variables for the top news story
+    html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
     news_title = soup.body.find('div', class_='bottom_gradient').text
     news_p = soup.body.find('div', class_='article_teaser_body').text
