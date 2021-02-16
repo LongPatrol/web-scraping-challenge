@@ -17,10 +17,18 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Check out Mars!</a></p>
     </div>
 
-    <!-- Craigslist Listings -->
-    <div class="row" id="craiglist-listings">
+    <!-- Mars Facts -->
+    <div class="row" id="mars-facts">
       <div class="col-md-12">
         <h4 class="heading">{{mars.top_story_title}}</h4>
+        <body> {{mars.top_story_blurb}}</body>
+        <table>
+          {{mars.tables.table1}}
+        </table>
+        <table>
+          {{mars.tables.tableMars}}
+        </table>
+
         <small></small>
       </div>
     </div>
