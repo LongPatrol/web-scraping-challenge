@@ -23,6 +23,8 @@ def scrape():
     #Getting table from mars-facts
     url_m = 'https://space-facts.com/mars/'
     tables = pd.read_html(url_m)
+    for table in tables:
+        table.set_index([table.columns[0]], inplace=True)
     tables_dict = {}
     
     
@@ -36,11 +38,22 @@ def scrape():
     for key, frame in tables_dict.items():
         key = key
         frame = frame.to_dict()
-            for key, value in frame.items():
-                key = "Column"
-                for key, valu in value.items():
-                    key = "Row"
-        frame_dict[key] = frame
+        for key, value in frame.items():
+            key = "table"+ str(key)
+            value = value
+            frame_dict[key] = value
+
+       #We need to change the keys from integers to strings or else Mongo won't take them
+        #if key == "Dataframe0":
+        #    for key, value in frame.items():
+        #        key = value
+
+        
+            #for key, value in frame.items():
+             #   key = "Column"
+             #   for key, valu in value.items():
+              #      key = "Row"
+        
 
     #urls for the Mars Hemisphere images
     hemisphere_images = [
@@ -53,7 +66,7 @@ def scrape():
     #dictionary for everything
     mars = {"top_story_title": news_title, "top_story_blurb": news_p, "tables": frame_dict, "hemi_images": hemisphere_images}
     
-    #return mars
-    return frame_dict
+    return mars
+    #return frame_dict
 
-print(scrape())
+#print(scrape())
