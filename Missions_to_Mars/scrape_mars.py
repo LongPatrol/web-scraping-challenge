@@ -30,7 +30,13 @@ def scrape():
         key = "Dataframe"+iterator
         tables_dict[key] = tables[i]
     #{"Dataframe"+to_string(i): tables[i] for i in range(0, len(tables))}
+    
+    frame_dict = {}
 
+    for key, frame in tables_dict.items():
+        key = key
+        frame = frame.to_dict()
+        frame_dict[key] = frame
     #urls for the Mars Hemisphere images
     hemisphere_images = [
     {"title": "Cerberus Hemisphere", "img_url": "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg"},
@@ -40,7 +46,7 @@ def scrape():
     ]   
 
     #dictionary for everything
-    mars = {"top_story_title": news_title, "top_story_blurb": news_p, "tables": tables_dict, "hemi_images": hemisphere_images}
+    mars = {"top_story_title": news_title, "top_story_blurb": news_p, "tables": frame_dict, "hemi_images": hemisphere_images}
     
     return mars
 
