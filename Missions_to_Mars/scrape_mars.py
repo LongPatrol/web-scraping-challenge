@@ -1,13 +1,14 @@
-def scrape():
-    #import dependencies
-    from splinter import Browser
-    from bs4 import BeautifulSoup
-    from webdriver_manager.chrome import ChromeDriverManager
-    import pandas as pd
+#import dependencies
+from splinter import Browser
+from bs4 import BeautifulSoup
+import pandas as pd
 
+
+def scrape():
     # Setup splinter
-    executable_path = {'executable_path': ChromeDriverManager().install()}
+    executable_path = {"executable_path": "chromedriver.exe"}
     browser = Browser('chrome', **executable_path, headless=False)
+    
 
     #Get nasa news article
     url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
@@ -33,8 +34,8 @@ def scrape():
     ]   
 
     #dictionary for everything
-    mars_dict = {"top_story_title": news_title, "top_story_blurb": news_p, "tables": tables, "hemi_images": hemisphere_images}
+    mars = {"top_story_title": news_title, "top_story_blurb": news_p, "tables": tables, "hemi_images": hemisphere_images}
     
-    return mars_dict
+    return mars
 
 #print(scrape())
