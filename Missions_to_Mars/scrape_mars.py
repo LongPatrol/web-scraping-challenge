@@ -23,7 +23,7 @@ def scrape():
     #Getting table from mars-facts
     url_m = 'https://space-facts.com/mars/'
     tables = pd.read_html(url_m)
-    
+    tables_dict = {i: tables[i] for i in range(0, len(tables))}
 
     #urls for the Mars Hemisphere images
     hemisphere_images = [
@@ -34,7 +34,7 @@ def scrape():
     ]   
 
     #dictionary for everything
-    mars = {"top_story_title": news_title, "top_story_blurb": news_p, "tables": tables, "hemi_images": hemisphere_images}
+    mars = {"top_story_title": news_title, "top_story_blurb": news_p, "tables": tables_dict, "hemi_images": hemisphere_images}
     
     return mars
 
