@@ -37,4 +37,4 @@ def scrape():
     
     return mars_dict
 
-print(scrape())
+#print(scrape())
