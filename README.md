@@ -1,4 +1,7 @@
 # web-scraping-challenge
+
+In this project, we are scraping data from various websites to get information about Mars. Afterwards, we are uploading that data into a Mongo database and using the database to build a local application to display the data that we've scraped.
+
 ## Sources:
 https://medium.com/analytics-vidhya/how-to-upload-a-pandas-dataframe-to-mongodb-ffa18c0953c1
 
